@@ -2,7 +2,88 @@
 <html>
 <head>
 	<title>Ming Bakery</title>
+	<script src="jquery-3.3.1.js"></script>
 	<link rel="stylesheet" type="text/css" href="ming.css">
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#button").click(function()
+			{
+					$("#result").attr("value", convert())
+			})
+		})
+
+		function convert() {
+			var ingredient = $("#convert_ing option").index($("#convert_ing option:selected"));
+			ingredient = ingredient + 1
+			var unit = $("#convert_unit option").index($("#convert_unit option:selected"));
+			unit = unit + 1
+			var num = $("#number").val();
+			if(ingredient==1)
+			{
+				if(unit==1)
+					return num * 4;
+				else if(unit==2)
+					return num * 8;
+				else if(unit==3)
+					return num * 125;
+			}
+			else if(ingredient==2)
+			{
+				if(unit==1)
+					return num * 2;
+				else if(unit==2)
+					return num * 7;
+				else if(unit==3)
+					return num * 90;
+			}
+			else if(ingredient==3)
+			{
+				if(unit==1)
+					return num * 2;
+				else if(unit==2)
+					return num * 7;
+				else if(unit==3)
+					return num * 100;
+			}
+			else if(ingredient==4)
+			{
+				if(unit==1)
+					return num * 4;
+				else if(unit==2)
+					return num * 8;
+				else if(unit==3)
+					return num * 150;
+			}
+			else if(ingredient==5)
+			{
+				if(unit==1)
+					return num * 2;
+				else if(unit==2)
+					return num * 6;
+				else if(unit==3)
+					return num * 80;
+			}
+			else if(ingredient==6)
+			{
+				if(unit==1)
+					return num * 4;
+				else if(unit==2)
+					return num * 15;
+				else if(unit==3)
+					return num * 200;
+			}
+			else if(ingredient==7)
+			{
+				if(unit==1)
+					return num * 5;
+				else if(unit==2)
+					return num * 15;
+				else if(unit==3)
+					return num * 180;
+			}
+		}
+	</script>
 </head>
 <body>
 <div class="header">
@@ -16,22 +97,49 @@
 </div>
 
 <div class="maincontent" style="text-align: left; float: left; width: 980px; padding-bottom: 100px;">
-	<h1 style="color:#9F7272; font-weight: 500; font-size: 3em;line-height: 1.2;">Basic Tool	<small style="color:#EFACAC"> for beginner</small></h1>
-	<table class="tool" style="border=0; border-spacing: 80px 20px; text-align: center; color: #9F7272; margin-bottom: 50px;">
+	<h1 style="position: relative; width: 500px; color:#9F7272; font-weight: 500; font-size: 2.5em;line-height: 1.2;">Basic Tool	<small style="color:#EFACAC"> for beginner</small></h1>
+	
+	<div class="ingredient" style="width: 300px; float: right;">
+		<h1 style="float: left; width: 500px; color:#9F7272; font-weight: 500; font-size: 2.5em;line-height: 1.2;">Convert	<small style="color:#EFACAC"> unit</small></h1>
+		<h3>재료 선택</h3>
+		<select style="float=right;" display: inline; id="convert_ing">
+			<option value="1" selected="1">밀가루</option>
+			<option value="2">전분</option>
+			<option value="3">옥수수분말</option>
+			<option value="4">아몬드분말</option>
+			<option value="5">코코아분말</option>
+			<option value="6">달걀</option>
+			<option value="7">버터</option>
+		</select>
+		<h3>단위 선택</h3>
+		<select style="float=right" id="convert_unit">
+			<option value="1" selected="1">ts</option>
+			<option value="2">Ts</option>
+			<option value="3">cup</option>
+		</select><br>
+		<form>
+		<h3>재료 양</h3>
+		<input type="text" style="text-align: right; margin-right: 5px;" id="number">
+		<input type="button" value="convert" id="button">
+		<h3>변환 값</h3>
+		<input type="text" style="text-align: right; margin-right: 5px;" id="result"><span>g</span>
+		</form>
+	</div>
+	<table class="tool" style="border=0; border-spacing: 80px 20px; text-align: center; color: #9F7272; margin-bottom: 50px; width: 680px;">
 		<tbody>
 			<tr>
-				<td><img src="사진/oven.jpg" style="widht:200px; height: 200px;"></td>
-				<td><img src="사진/handmixer.jpg" style="widht:200px; height: 200px;"></td>
-				<td><img src="사진/silicon_1.jpg" style="widht:200px; height: 200px;"></td>
+				<td><img src="사진/oven.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/handmixer.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/silicon_1.jpg" style="widht:100px; height: 100px;"></td>
 			</tr>
 			<tr>
 				<td>오븐</td>
 				<td>핸드믹서</td>
 				<td>실리콘 주걱</td>
 			</tr>
-				<td><img src="사진/tepron.jpg" style="widht:200px; height: 200px;"></td>
-				<td><img src="사진/짤주머니.jpg" style="widht:200px; height: 300px;"></td>
-				<td><img src="사진/전자저울.jpg" style="widht:200px; height: 200px;"></td>
+				<td><img src="사진/tepron.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/짤주머니.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/전자저울.jpg" style="widht:100px; height: 100px;"></td>
 			</tr>
 			<tr>
 				<td>테프론 시트</td>
@@ -39,9 +147,9 @@
 				<td>전자저울</td>
 			</tr>
 			<tr>
-				<td><img src="사진/계량컵.jpg" style="widht:200px; height: 200px;"></td>
-				<td><img src="사진/scraper.jpg" style="widht:200px; height: 200px;"></td>
-				<td><img src="사진/mixingbowl.jpg" style="widht:200px; height: 200px;"></td>
+				<td><img src="사진/계량컵.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/scraper.jpg" style="widht:100px; height: 100px;"></td>
+				<td><img src="사진/mixingbowl.jpg" style="widht:100px; height: 100px;"></td>
 			</tr>
 			<tr>
 				<td>계량컵</td>
